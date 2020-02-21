@@ -46,6 +46,7 @@ The percentage should have 2 decimal digits
 
 bang_nums = [call_list[1] for call_list in calls if str(call_list[0])[1:4] == '080' ]
 bang_nums = list(set(bang_nums))
+bang_nums.sort(reverse=True)
 str1 = ' \n'.join(bang_nums)
 print(("The numbers called by people in Bangalore have codes:{}").format(str1))
 

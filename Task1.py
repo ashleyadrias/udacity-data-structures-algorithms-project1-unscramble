@@ -14,15 +14,15 @@ with open('calls.csv', 'r') as f:
 
 """
 TASK 1:
-How many different telephone numbers are there in the records? 
+How many different telephone numbers are there in the records?
 Print a message:
 "There are <count> different telephone numbers in the records."
 """
 
 num1 = [call_list[0] for call_list in calls]
 num2 = [call_list[1] for call_list in calls]
-num3 = [call_list[0] for call_list in calls]
-num4 = [call_list[1] for call_list in calls]
+num3 = [call_list[0] for call_list in texts]
+num4 = [call_list[1] for call_list in texts]
 
 unique_numbers = list(set(num1+num2+num3+num4))
 
