@@ -20,9 +20,7 @@ Print a message:
 September 2016.".
 """
 
-long_dur = [int(call_list[3]) for call_list in calls]
-long_dur = list(set(long_dur))
-long_dur.sort(reverse=True)
-print(("""{} spent the longest time, <total time> seconds, on the phone during 
-September 2016.""").format(long_dur[0]))
-
+long_dur = [[int(call_list[3]),call_list[0]] for call_list in calls]
+long_dur.sort(key=lambda tup: tup[0],reverse=True)
+print(("""{} spent the longest time, {} seconds, on the phone during 
+September 2016.""").format(long_dur[0][1],long_dur[0][0]))

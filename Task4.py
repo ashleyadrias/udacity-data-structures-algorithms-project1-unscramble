@@ -26,6 +26,7 @@ The list of numbers should be print out one per line in lexicographic order with
 """
 
 tele1 = [call_list[0] for call_list in calls if (" " not in call_list[0] or "(" not in call_list[0] or ")" not in call_list[0])]
+tele1 = list(set(tele1))
 tele1.sort(reverse=True)
 str1 = ' \n'.join(tele1)
 print(("These numbers could be telemarketers: {}").format(str1))
