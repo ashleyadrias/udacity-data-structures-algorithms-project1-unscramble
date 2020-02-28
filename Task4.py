@@ -2,16 +2,6 @@
 Read file into texts and calls.
 It's ok if you don't understand how to read files.
 """
-import csv
-
-with open('texts.csv', 'r') as f:
-    reader = csv.reader(f)
-    texts = list(reader)
-
-with open('calls.csv', 'r') as f:
-    reader = csv.reader(f)
-    calls = list(reader)
-
 """
 TASK 4:
 The telephone company want to identify numbers that might be doing
@@ -25,8 +15,31 @@ Print a message:
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
 
-tele1 = [call_list[0] for call_list in calls if (" " not in call_list[0] or "(" not in call_list[0] or ")" not in call_list[0])]
-tele1 = list(set(tele1))
-tele1.sort(reverse=True)
-str1 = ' \n'.join(tele1)
-print(("These numbers could be telemarketers: {}").format(str1))
+import csv
+
+callers = []
+whitelist = []
+
+with open('texts.csv', 'r') as f:
+    reader = csv.reader(f)
+    for text in list(reader):
+        sender, receiver, timestamp = text
+        whitelist.extend([sending, receiving])
+
+with open('calls.csv', 'r') as f:
+    reader = csv.reader(f)
+    for call in list(reader):
+        caller, receiver, timestamp, seconds = call
+        callers.append(calling)
+        whitelist.append(receiving)
+
+# Remove duplicates
+callers = list(set(callers))
+whitelist = list(set(whitelist))
+
+# Potential telemarketers are numbers that appear in the callers list, but not in the whitelist
+suspect_tele = set(callers).difference(whitelist)
+
+print("Potential telemarketers:")
+for nums in sorted(suspect_tele):
+    print(nums)

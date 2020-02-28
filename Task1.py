@@ -3,13 +3,18 @@ Read file into texts and calls.
 It's ok if you don't understand how to read files.
 """
 import csv
+
+phone_nums = []
+
 with open('texts.csv', 'r') as f:
     reader = csv.reader(f)
-    texts = list(reader)
+    for text in list(reader):
+        phone_nums.extend(text[:2])
 
 with open('calls.csv', 'r') as f:
     reader = csv.reader(f)
-    calls = list(reader)
+    for call in list(reader):
+        phone_nums.extend(call[:2])
 
 
 """
@@ -19,11 +24,6 @@ Print a message:
 "There are <count> different telephone numbers in the records."
 """
 
-num1 = [call_list[0] for call_list in calls]
-num2 = [call_list[1] for call_list in calls]
-num3 = [call_list[0] for call_list in texts]
-num4 = [call_list[1] for call_list in texts]
+phone_nums = list(set(phone_nums))
 
-unique_numbers = list(set(num1+num2+num3+num4))
-
-print(("There are {} different telephone numbers in the records.").format(len(unique_numbers)))
+print(("There are {} different telephone numbers in the records.").format(len(phone_nums)))
