@@ -44,20 +44,17 @@ def is_bangalore_number(phone_number):
     """Returns True if number is from bangalore (080)"""
     return phone_number[:5] == '(080)'
 
+def is_landline(phone_number):
+    """Returns True if number is a landline (140)"""
+    return landline_pattern.match(phone_number) is not None
 
 def is_telemarketer(phone_number):
     """Returns True if number is a telemarketers (140)"""
     return phone_number[:3] == '140'
 
-
 def is_mobile(phone_number):
     """Returns True if number is mobile"""
     return phone_number[:1] in ['7', '8', '9']
-
-
-def is_landline(phone_number):
-    """Returns True if number is a landline (140)"""
-    return landline_pattern.match(phone_number) is not None
 
 def extract_area_code(phone_number):
     """
@@ -100,10 +97,11 @@ with open('calls.csv', 'r') as f:
 # Remove duplicates and sort
 area_codes = sorted(list(set(area_codes)))
 
-# Part A:
+# A:
 print('Area odes numbered called by individuals from Bangalore:')
 for area_code in area_codes:
     print(area_code)
 
+# B
 print(("""{} % of calls from fixed lines in Bangalore are calls
 to other fixed lines in Bangalore.""").format(int((sum_to_bang / sum_from_bang)*100)))
