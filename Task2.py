@@ -27,4 +27,4 @@ with open('calls.csv', 'r') as f:
 phone_number = max(sum.keys(), key=(lambda k: sum[k]))
 
 print(("""{} spent the longest time, {} seconds, on the phone during
-September 2016.""").format(sum(phone_number),phone_number))
+September 2016.""").format(phone_number,sum[phone_number]))

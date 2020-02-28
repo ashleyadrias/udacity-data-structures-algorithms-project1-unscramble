@@ -24,14 +24,14 @@ with open('texts.csv', 'r') as f:
     reader = csv.reader(f)
     for text in list(reader):
         sender, receiver, timestamp = text
-        whitelist.extend([sending, receiving])
+        whitelist.extend([sender, receiver])
 
 with open('calls.csv', 'r') as f:
     reader = csv.reader(f)
     for call in list(reader):
         caller, receiver, timestamp, seconds = call
-        callers.append(calling)
-        whitelist.append(receiving)
+        callers.append(caller)
+        whitelist.append(receiver)
 
 # Remove duplicates
 callers = list(set(callers))

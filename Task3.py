@@ -1,4 +1,4 @@
- """
+"""
 Read file into texts and calls.
 It's ok if you don't understand how to read files.
 """
@@ -36,6 +36,7 @@ The percentage should have 2 decimal digits
 """
 
 import csv
+import re
 
 landline_pattern = re.compile(r'^\((0[0-9]+)\)')
 
@@ -105,4 +106,4 @@ for area_code in area_codes:
     print(area_code)
 
 print(("""{} % of calls from fixed lines in Bangalore are calls
-to other fixed lines in Bangalore.""").format(sum_to_bang / sum_from_bang)
+to other fixed lines in Bangalore.""").format(int((sum_to_bang / sum_from_bang)*100)))
